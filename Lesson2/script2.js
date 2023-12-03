@@ -1,7 +1,16 @@
 //---------------Масиви та об'єкти:--------------//
 // - Створити масив, наповнити його 10 елементами будь-якого типу, вивести кожен елемент в консоль
 let arr1 = [1, true, 'bmw', 56, 55, false, 'ergerg', 89, 225, 333];
-console.log(arr1);
+console.log(arr1[0]);
+console.log(arr1[1]);
+console.log(arr1[2]);
+console.log(arr1[3]);
+console.log(arr1[4]);
+console.log(arr1[5]);
+console.log(arr1[6]);
+console.log(arr1[7]);
+console.log(arr1[8]);
+console.log(arr1[9]);
 
 // - Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre.
 let obj1 = {
@@ -113,6 +122,7 @@ let usersList = [
     }
 ];
 usersList.forEach((user)=>console.log(user.password));
+console.log(usersList[0].password);
 
 //---------------Логічні розгалуження:--------------//
 // - Є змінна х, якій ви надаєте довільне числове значення.
@@ -229,3 +239,7 @@ coursesAndDurationArray.forEach((duration) =>{
     }
 }
 )
+
+if(coursesAndDurationArray[0].monthDuration >= 5){
+    console.log('Супер');
+}
