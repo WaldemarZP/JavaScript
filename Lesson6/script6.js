@@ -109,19 +109,80 @@ console.log(mapCoursesAndDurationArray);
 
 // =========================
 // описати колоду карт (від 6 до туза без джокерів)
-let cards = [
-    {cardSuit: 'spade', value: ['6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'], color: 'black'},
-    {cardSuit: 'diamond', value: ['6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'], color: 'red'},
-    {cardSuit: 'heart', value: ['6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'], color: 'red'},
-    {cardSuit: 'clubs', value: ['6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'], color: 'black'}
-];
+// let carsSuits = ['spade', 'diamond', 'clubs', 'heart'];
+// let values = [6, 7, 8, 9, 10, 'jack', 'queen', 'king', 'ace'];
+//
+// let desk = (carsSuits, values) => {
+//     let arr = [];
+//     for (const carsSuit of carsSuits) {
+//         for (const value of values) {
+//             arr.push(
+//                 {carsSuit: carsSuit, value: value}
+//             )
+//         }
+//     }
+//     arr.map((item) => (item.carsSuit === 'diamond' || item.carsSuit === 'heart') ? item.color = 'red' : item.color = 'black');
+//     return arr;
+// }
+// let doneDesk = desk(carsSuits, values);
+// console.log(doneDesk);
+
+
+let cards= [
+    {cardSuit: 'spades', value: '6', color: 'black'},
+    {cardSuit: 'spades', value: '7', color: 'black'},
+    {cardSuit: 'spades', value: '8', color: 'black'},
+    {cardSuit: 'spades', value: '9', color: 'black'},
+    {cardSuit: 'spades', value: '10', color: 'black'},
+    {cardSuit: 'spades', value: 'ace', color: 'black'},
+    {cardSuit: 'spades', value: 'jack', color: 'black'},
+    {cardSuit: 'spades', value: 'queen', color: 'black'},
+    {cardSuit: 'spades', value: 'king', color: 'black'},
+    {cardSuit: 'clubs', value: '6', color: 'black'},
+    {cardSuit: 'clubs', value: '7', color: 'black'},
+    {cardSuit: 'clubs', value: '8', color: 'black'},
+    {cardSuit: 'clubs', value: '9', color: 'black'},
+    {cardSuit: 'clubs', value: '10', color: 'black'},
+    {cardSuit: 'clubs', value: 'ace', color: 'black'},
+    {cardSuit: 'clubs', value: 'jack', color: 'black'},
+    {cardSuit: 'clubs', value: 'queen', color: 'black'},
+    {cardSuit: 'clubs', value: 'king', color: 'black'},
+    {cardSuit: 'hearts', value: '6', color: 'red'},
+    {cardSuit: 'hearts', value: '7', color: 'red'},
+    {cardSuit: 'hearts', value: '8', color: 'red'},
+    {cardSuit: 'hearts', value: '9', color: 'red'},
+    {cardSuit: 'hearts', value: '10', color: 'red'},
+    {cardSuit: 'hearts', value: 'ace', color: 'red'},
+    {cardSuit: 'hearts', value: 'jack', color: 'red'},
+    {cardSuit: 'hearts', value: 'queen', color: 'red'},
+    {cardSuit: 'hearts', value: 'king', color: 'red'},
+    {cardSuit: 'diamonds', value: '6', color: 'red'},
+    {cardSuit: 'diamonds', value: '7', color: 'red'},
+    {cardSuit: 'diamonds', value: '8', color: 'red'},
+    {cardSuit: 'diamonds', value: '9', color: 'red'},
+    {cardSuit: 'diamonds', value: '10', color: 'red'},
+    {cardSuit: 'diamonds', value: 'ace', color: 'red'},
+    {cardSuit: 'diamonds', value: 'jack', color: 'red'},
+    {cardSuit: 'diamonds', value: 'queen', color: 'red'},
+    {cardSuit: 'diamonds', value: 'king', color: 'red'},
+]
 
 // - знайти піковий туз
+console.log(cards.find((card) => card.cardSuit === 'spade' && card.value === 'ace'));
+
 // - всі шістки
+console.log(cards.filter((card) => card.value === '6'));
+
 // - всі червоні карти
+console.log(cards.filter((card) => card.color === 'red'));
+
 // - всі буби
+console.log(cards.filter((card) => card.cardSuit === 'diamond'));
+
 // - всі трефи від 9 та більше
-//
+console.log(cards.filter((card) => card.cardSuit === 'clubs' && ['9', '10', 'ace', 'jack', 'queen', 'king'].includes(card.value)));
+
+
 // {
 //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
 //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
@@ -138,17 +199,22 @@ let cards = [
 //     clubs:[]
 // }
 let suit = cards.reduce((accumulator, card) => {
-    if (card.cardSuit === 'spade') {
-        accumulator[0].push(card);
-    } else if (card.cardSuit === 'diamond') {
-        accumulator[1].push(card);
-    } else if (card.cardSuit === 'heart') {
-        accumulator[2].push(card);
-    } else if (card.cardSuit === 'clubs') {
-        accumulator[3].push(card);
+    if (card.cardSuit === 'spades') {
+        accumulator.spades.push(card);
     }
+    if (card.cardSuit === 'diamonds') {
+        accumulator.diamonds.push(card);
+    }
+    if (card.cardSuit === 'hearts') {
+        accumulator.hearts.push(card);
+    }
+    if (card.cardSuit === 'clubs') {
+        accumulator.clubs.push(card);
+    }
+    // accumulator[card.cardSuit].push(card);
+
     return accumulator;
-}, []);
+}, {spades:[], diamonds:[], hearts:[], clubs:[]});
 console.log(suit);
 
 
